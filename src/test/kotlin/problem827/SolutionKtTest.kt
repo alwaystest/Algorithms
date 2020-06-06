@@ -137,7 +137,7 @@ class UnSearchedNeighborsTest {
         assertThat(result.size, equalTo(2))
         val expectations = listOf(0 to 1, 1 to 0)
         result.containsAll(expectations) shouldBe true
-        expectations.containsAll(result) shouldBe true
+        expectations.size shouldBe result.size
     }
 
     @Test
@@ -152,7 +152,7 @@ class UnSearchedNeighborsTest {
         assertThat(result.size, equalTo(2))
         val expectations = listOf(0 to 0, 1 to 1)
         result.containsAll(expectations) shouldBe true
-        expectations.containsAll(result) shouldBe true
+        expectations.size shouldBe result.size
     }
 
     @Test
@@ -167,7 +167,7 @@ class UnSearchedNeighborsTest {
         assertThat(result.size, equalTo(2))
         val expectations = listOf(0 to 0, 1 to 1)
         result.containsAll(expectations) shouldBe true
-        expectations.containsAll(result) shouldBe true
+        expectations.size shouldBe result.size
     }
 
     @Test
@@ -182,7 +182,7 @@ class UnSearchedNeighborsTest {
         assertThat(result.size, equalTo(2))
         val expectations = listOf(0 to 1, 1 to 0)
         result.containsAll(expectations) shouldBe true
-        expectations.containsAll(result) shouldBe true
+        expectations.size shouldBe result.size
     }
 
     @Test
@@ -198,7 +198,7 @@ class UnSearchedNeighborsTest {
         assertThat(result.size, equalTo(4))
         val expectations = listOf(0 to 1, 1 to 0, 1 to 2, 2 to 1)
         result.containsAll(expectations) shouldBe true
-        expectations.containsAll(result) shouldBe true
+        expectations.size shouldBe result.size
     }
 
     @Test
@@ -214,6 +214,6 @@ class UnSearchedNeighborsTest {
         assertThat(result.size, equalTo(3))
         val expectations = listOf(0 to 1, 1 to 2, 2 to 1)
         result.containsAll(expectations) shouldBe true
-        expectations.containsAll(result) shouldBe true
+        expectations.size shouldBe result.size
     }
 }
