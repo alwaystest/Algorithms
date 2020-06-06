@@ -122,3 +122,98 @@ class CalculateTest(private val data: Array<IntArray>, private val expect: Array
         assertThat(result, equalTo(expect))
     }
 }
+
+class UnSearchedNeighborsTest {
+
+    @Test
+    fun unSearchedNeighbors_leftTop_2neighbors() {
+        val data = arrayOf(
+            intArrayOf(0, 0),
+            intArrayOf(0, 0)
+        )
+
+        val result = unSearchedNeighbors(data.size, 0 to 0, mutableSetOf())
+
+        assertThat(result.size, equalTo(2))
+        val expectations = listOf(0 to 1, 1 to 0)
+        result.containsAll(expectations) shouldBe true
+        expectations.containsAll(result) shouldBe true
+    }
+
+    @Test
+    fun unSearchedNeighbors_rightTop_2neighbors() {
+        val data = arrayOf(
+            intArrayOf(0, 0),
+            intArrayOf(0, 0)
+        )
+
+        val result = unSearchedNeighbors(data.size, 0 to 1, mutableSetOf())
+
+        assertThat(result.size, equalTo(2))
+        val expectations = listOf(0 to 0, 1 to 1)
+        result.containsAll(expectations) shouldBe true
+        expectations.containsAll(result) shouldBe true
+    }
+
+    @Test
+    fun unSearchedNeighbors_leftBottom_2neighbors() {
+        val data = arrayOf(
+            intArrayOf(0, 0),
+            intArrayOf(0, 0)
+        )
+
+        val result = unSearchedNeighbors(data.size, 1 to 0, mutableSetOf())
+
+        assertThat(result.size, equalTo(2))
+        val expectations = listOf(0 to 0, 1 to 1)
+        result.containsAll(expectations) shouldBe true
+        expectations.containsAll(result) shouldBe true
+    }
+
+    @Test
+    fun unSearchedNeighbors_rightBottom_2neighbors() {
+        val data = arrayOf(
+            intArrayOf(0, 0),
+            intArrayOf(0, 0)
+        )
+
+        val result = unSearchedNeighbors(data.size, 1 to 1, mutableSetOf())
+
+        assertThat(result.size, equalTo(2))
+        val expectations = listOf(0 to 1, 1 to 0)
+        result.containsAll(expectations) shouldBe true
+        expectations.containsAll(result) shouldBe true
+    }
+
+    @Test
+    fun unSearchedNeighbors_middle_4neighbors() {
+        val data = arrayOf(
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0)
+        )
+
+        val result = unSearchedNeighbors(data.size, 1 to 1, mutableSetOf())
+
+        assertThat(result.size, equalTo(4))
+        val expectations = listOf(0 to 1, 1 to 0, 1 to 2, 2 to 1)
+        result.containsAll(expectations) shouldBe true
+        expectations.containsAll(result) shouldBe true
+    }
+
+    @Test
+    fun unSearchedNeighbors_middleWithSearched_unSearchedNeighbors() {
+        val data = arrayOf(
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0)
+        )
+
+        val result = unSearchedNeighbors(data.size, 1 to 1, mutableSetOf(1 to 0))
+
+        assertThat(result.size, equalTo(3))
+        val expectations = listOf(0 to 1, 1 to 2, 2 to 1)
+        result.containsAll(expectations) shouldBe true
+        expectations.containsAll(result) shouldBe true
+    }
+}
