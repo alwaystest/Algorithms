@@ -48,5 +48,10 @@ fun unSearchedNeighbors(
     index: Pair<Int, Int>,
     searched: MutableSet<Pair<Int, Int>>
 ): List<Pair<Int, Int>> {
-    TODO("获取其上下左右合法的 Index，注意可能需要去除已经跑过的地方")
+    val up = index.copy(first = index.first - 1)
+    val bottom = index.copy(first = index.first + 1)
+    val right = index.copy(second = index.second + 1)
+    val left = index.copy(second = index.second - 1)
+    val candidate = listOf(left, bottom, right, up)
+    return candidate.filter { it !in searched && it.first in 0 until size && it.second in 0 until size }
 }
