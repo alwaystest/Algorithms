@@ -43,7 +43,7 @@ class SolutionKtTest(private val data: Array<IntArray>, private val expect: Int)
             arrayOf(
                 arrayOf(
                     intArrayOf(1, 1),
-                    intArrayOf(3, 0)
+                    intArrayOf(1, 0)
                 ), 4
             ),
             arrayOf(
