@@ -1,15 +1,11 @@
 package problem827
 
-import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.core.Is
+import org.junit.Assert.assertThat
 import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-
-infix fun <T> T.shouldBe(t: T) = assertThat(this, `is`(t))
+import shouldBe
 
 @RunWith(Parameterized::class)
 class SolutionKtTest(private val data: Array<IntArray>, private val expect: Int) {
