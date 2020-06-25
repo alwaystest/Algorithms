@@ -15,5 +15,16 @@ fun minFlips(a: Int, b: Int, c: Int): Int {
 }
 
 fun flipAtLastPosition(a: Int, b: Int, c: Int): Int {
-    TODO()
+    val lastA = a % 2
+    val lastB = b % 2
+    return when (c % 2) {
+        0 -> {
+            var diff = 0
+            if (lastA != 0) diff++
+            if (lastB != 0) diff++
+            diff
+        }
+        1 -> if (lastA == 1 || lastB == 1) 0 else 1
+        else -> error("Should not reach here")
+    }
 }
