@@ -26,3 +26,25 @@ class Solution1318Test(private val a: Int, private val b: Int, private val c: In
         minFlips(a, b, c) shouldBe flip
     }
 }
+
+@RunWith(Parameterized::class)
+class FlipAtLastPositionTest(private val a: Int, private val b: Int, private val c: Int, private val flip: Int) {
+
+    companion object {
+
+        @Parameterized.Parameters
+        @JvmStatic
+        fun params() = listOf(
+            case(0, 0, 0, 0),
+            case(0, 1, 1, 0),
+            case(1, 1, 1, 0),
+            case(0, 0, 1, 1),
+            case(1, 1, 0, 2)
+        )
+    }
+
+    @Test
+    fun flipAtLastPosition_lastIsSame_return0() {
+        flipAtLastPosition(a, b, c) shouldBe flip
+    }
+}
