@@ -6,5 +6,11 @@ class TreeNode(var `val`: Int) {
 }
 
 fun rightSideView(root: TreeNode?): List<Int> {
+    if (root == null) {
+        return emptyList()
+    }
+    if (root.left == null && root.right == null) {
+        return listOf(root.`val`)
+    }
     TODO()
 }
