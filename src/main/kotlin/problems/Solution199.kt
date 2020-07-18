@@ -1,5 +1,7 @@
 package problems
 
+import java.util.*
+
 class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
@@ -13,10 +15,15 @@ fun rightSideView(root: TreeNode?): List<Int> {
         return listOf(root.`val`)
     }
     val result = mutableListOf<Int>()
-    var currentLevel = listOf(root)
+    var currentLevel = LinkedList<TreeNode>().apply { add(root) }
     while (currentLevel.isNotEmpty()) {
         result.add(currentLevel.last().`val`)
-        currentLevel = currentLevel.flatMap { listOf(it.left, it.right) }.filterNotNull()
+        val nextLevel = LinkedList<TreeNode>()
+        currentLevel.forEach {
+            it.left?.let { nextLevel.add(it) }
+            it.right?.let { nextLevel.add(it) }
+        }
+        currentLevel = nextLevel
     }
     return result
 }
