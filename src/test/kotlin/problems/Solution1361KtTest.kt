@@ -29,4 +29,19 @@ class Solution1361KtTest {
         val result = validateBinaryTreeNodes(6, intArrayOf(1, -1, -1, 4, -1, -1), intArrayOf(2, -1, -1, 5, -1, -1))
         result shouldBe false
     }
+
+    @Test
+    fun parentCountValid_count0_valid() {
+        parentCountValid(0, intArrayOf(0)) shouldBe true
+    }
+
+    @Test
+    fun parentCountValid_count1_valid() {
+        parentCountValid(0, intArrayOf(1)) shouldBe true
+    }
+
+    @Test
+    fun parentCountValid_moreThan1_invalid() {
+        parentCountValid(0, intArrayOf(2)) shouldBe false
+    }
 }
