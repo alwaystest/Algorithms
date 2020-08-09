@@ -6,7 +6,8 @@ fun validateBinaryTreeNodes(n: Int, leftChild: IntArray, rightChild: IntArray): 
         if (!addParentCountAndValidate(leftChild[i], parentCountArray)) return false
         if (!addParentCountAndValidate(rightChild[i], parentCountArray)) return false
     }
-    TODO()
+    val rootCount = parentCountArray.count { it == 0 }
+    return rootCount == 1
 }
 
 fun addParentCountAndValidate(node: Int, parentCountArray: IntArray): Boolean {
