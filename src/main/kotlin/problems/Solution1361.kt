@@ -3,12 +3,16 @@ package problems
 fun validateBinaryTreeNodes(n: Int, leftChild: IntArray, rightChild: IntArray): Boolean {
     val parentCountArray = IntArray(n)
     for (i in 0 until n) {
-        if (!parentCountValid(leftChild[i], parentCountArray)) return false
-        if (!parentCountValid(rightChild[i], parentCountArray)) return false
+        if (!addParentCountAndValidate(leftChild[i], parentCountArray)) return false
+        if (!addParentCountAndValidate(rightChild[i], parentCountArray)) return false
     }
     TODO()
 }
 
-fun parentCountValid(node: Int, parentCountArray: IntArray): Boolean {
-    TODO("Not yet implemented")
+fun addParentCountAndValidate(node: Int, parentCountArray: IntArray): Boolean {
+    if (node != -1) {
+        parentCountArray[node]++
+        if (parentCountArray[node] > 1) return false
+    }
+    return true
 }

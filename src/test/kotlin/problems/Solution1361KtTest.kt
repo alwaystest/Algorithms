@@ -1,6 +1,5 @@
 package problems
 
-import org.junit.Assert.*
 import org.junit.Test
 import shouldBe
 
@@ -32,16 +31,16 @@ class Solution1361KtTest {
 
     @Test
     fun parentCountValid_count0_valid() {
-        parentCountValid(0, intArrayOf(0)) shouldBe true
+        addParentCountAndValidate(0, intArrayOf(0)) shouldBe true
     }
 
     @Test
-    fun parentCountValid_count1_valid() {
-        parentCountValid(0, intArrayOf(1)) shouldBe true
+    fun parentCountValid_count1_invalid() {
+        addParentCountAndValidate(0, intArrayOf(1)) shouldBe false
     }
 
     @Test
     fun parentCountValid_moreThan1_invalid() {
-        parentCountValid(0, intArrayOf(2)) shouldBe false
+        addParentCountAndValidate(0, intArrayOf(2)) shouldBe false
     }
 }
