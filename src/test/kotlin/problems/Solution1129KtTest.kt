@@ -4,7 +4,7 @@ import org.junit.Assert.*
 import org.junit.Test
 import shouldBe
 
-class Solution11229KtTest {
+class Solution1129KtTest {
 
     @Test
     fun shortestAlternatingPaths_inputN_resultLengthN() {
