@@ -15,6 +15,7 @@ class Solution91KtTest(private val s: String, private val result: Int) {
         fun params() = listOf(
             arrayOf("0", 0),
             arrayOf("1", 1),
+            arrayOf("10", 1),
             arrayOf("12", 2),
             arrayOf("226", 3),
             arrayOf("227", 2)
