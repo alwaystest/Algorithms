@@ -36,6 +36,3 @@ class Solution(private val head: ListNode?) {
 
 }
 
-class ListNode(var `val`: Int) {
-    var next: ListNode? = null
-}
