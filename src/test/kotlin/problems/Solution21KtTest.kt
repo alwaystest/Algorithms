@@ -36,14 +36,4 @@ class Solution21KtTest {
             }
         }
     }
-
-    private fun ListNode.toStr(): String {
-        val result = mutableListOf<Int>()
-        var node: ListNode? = this
-        while (node != null) {
-            result.add(node.`val`)
-            node = node.next
-        }
-        return result.joinToString(",")
-    }
 }
